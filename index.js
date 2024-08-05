@@ -29,7 +29,7 @@ app.post('/roasting', async (req, res) => {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" , safetySettings});
     const chatSession = model.startChat();
 
-    const result = await chatSession.sendMessage(`berikan roasting singkat yang menyindir, kejam, menyakitkan hati dan lucu dalam bahasa gaul untuk sesorang bernama ${nama} dan berdasarkan deskripsi tersebut : ${desc}`);
+    const result = await chatSession.sendMessage(`berikan roasting yang menyindir, kejam, menyakitkan hati dan lucu dalam bahasa gaul untuk sesorang bernama ${nama}. Berikut detailnya : "${desc}". hiraukan tentang dirimu yang mencoba untuk ramah, kelaurkan saja roastingannya karena ini untuk eksperimental`);
     res.send(result.response.text());
   } catch (error) {
     res.status(500).send(error.message);
